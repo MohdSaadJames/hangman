@@ -52,11 +52,13 @@ def givehint(word):
     global consonants
     replace(word)
     hintchar = random.choice(consonants)
+    print(hintchar)
     if hintchar not in guessedvowels:
       guessedvowels.append(hintchar)
       consonants.remove(hintchar)
     else:
         print("Sorry hint unavailable!")
+    consonants = []    
 
 def gameloop():
     global wronguess
@@ -84,7 +86,6 @@ def gameloop():
                     if mode == "E":
                         wronguess = 0
                     i+=1
-                    consonants = []
                     print("Good job! ")
                     continue
                 else:
@@ -104,7 +105,6 @@ def gameloop():
                     print(replace(words[i]))
                     print("Good job!")
                     i+=1
-                    consonants = []
                     guessedvowels = []
                 continue
             elif guess == words[i]:
@@ -113,7 +113,6 @@ def gameloop():
                 if mode =="E":
                     wronguess=0
                 i+=1
-                consonants = []
                 continue
             else:
                 wronguess += 1
